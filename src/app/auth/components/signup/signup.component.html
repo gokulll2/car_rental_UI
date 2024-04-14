@@ -7,13 +7,13 @@
             <h1 style="margin-left: 80px">Sign Up</h1>
           </div>
         </div>
-        <form nz-form>
+        <form nz-form [formGroup]="signupForm">
           <nz-form-item>
             <nz-form-control
               nzHasFeedback
               nzErrorTip="The input is not a valid Email"
             >
-              <input nz-input placeholder="E-mail" id="email" />
+              <input nz-input placeholder="E-mail" id="email" formControlName="email"/>
             </nz-form-control>
           </nz-form-item>
 
@@ -24,6 +24,7 @@
                 placeholder="Password"
                 type="password"
                 id="password"
+                formControlName="password"
               />
               <ng-template #errorPass let-control>
                 <ng-container *ngIf="control.hasError('required')">
@@ -44,6 +45,7 @@
                 placeholder="Confirm Password"
                 type="password"
                 id="checkPassword"
+                formControlName="checkPassword"
               />
               <ng-template #errorTpl let-control>
                 <ng-container *ngIf="control.hasError('required')">
@@ -58,7 +60,7 @@
 
           <nz-form-item>
             <nz-form-control nzHasFeedback nzErrorTip="userErrorTpl">
-              <input nz-input placeholder="Name" id="username" />
+              <input nz-input placeholder="Name" id="username" formControlName="name"/>
               <ng-template #userErrorTpl let-control>
                 <ng-container *ngIf="control.hasError('required')">
                   Please input your username!
@@ -71,6 +73,8 @@
             nz-button
             class="login-form-button login-form-margin"
             [nzType]="'primary'"
+            (click)="register()"
+            [disabled]="signupForm.invalid"
           >
             Register
           </button>
