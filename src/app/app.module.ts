@@ -16,15 +16,19 @@ import { FormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { NgZorroImportModule } from './NgZorroImportsModule';
 
+//NgZorroImports
+import { NgZorroImportModule } from './NgZorroImportsModule';
 
 registerLocaleData(en);
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, SignupComponent],
-  imports: [BrowserModule, AppRoutingModule, 
-    FormsModule , ReactiveFormsModule , NgZorroImportModule
+  imports: [BrowserModule, 
+            AppRoutingModule, 
+            FormsModule , 
+            ReactiveFormsModule , 
+            NgZorroImportModule,
   ],
   providers: [
     provideClientHydration(),
