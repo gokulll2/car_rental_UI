@@ -47,4 +47,11 @@ export class AdminService {
     })
   }
 
+  updateCar(carId : number , carDto : any) : Observable<any>
+  {
+    return this.http.put(BASE_URL + '/api/admin/car/' + carId , carDto , {
+      headers: this.createAuthorizationHeader()
+    })
+  }
+
 }
